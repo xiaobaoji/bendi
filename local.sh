@@ -260,7 +260,7 @@ fi
 
 function Bendi_DiySetup() {
 cd ${GITHUB_WORKSPACE}
-bash -c  "$(curl -fsSL https://raw.githubusercontent.com/281677160/common/main/custom/first.sh)"
+bash -c  "$(curl -fsSL https://raw.githubusercontent.com/xiaobaoji/common/main/custom/first.sh)"
 source ${GITHUB_WORKSPACE}/operates/${FOLDER_NAME}/settings.ini
 }
 
@@ -755,9 +755,9 @@ function Bendi_Packaging() {
     ECHOR "仓库名称输入错误，只支持（stable、dev、flippy、rk3588），修改成默认stable仓库使用"
   fi
   
-  curl -fsSL https://github.com/281677160/common/releases/download/API/${kernel_usage}.api -o amlogic/${kernel_usage}.api
+  curl -fsSL https://github.com/xiaobaoji/common/releases/download/API/${kernel_usage}.api -o amlogic/${kernel_usage}.api
   if [[ $? -ne 0 ]]; then
-    curl -fsSL https://github.com/281677160/common/releases/download/API/${kernel_usage}.api -o amlogic/${kernel_usage}.api
+    curl -fsSL https://github.com/xiaobaoji/common/releases/download/API/${kernel_usage}.api -o amlogic/${kernel_usage}.api
   fi
   
   if [[ `grep -c "name" amlogic/stable.api` -ge '1' ]]; then
@@ -1085,7 +1085,7 @@ if [[ ! -f "/etc/oprelyon" ]]; then
 fi
 if [[ ! -d "operates" ]]; then
   sudo rm -rf build
-  bash -c  "$(curl -fsSL https://raw.githubusercontent.com/281677160/common/main/custom/first.sh)"
+  bash -c  "$(curl -fsSL https://raw.githubusercontent.com/xiaobaoji/common/main/custom/first.sh)"
 fi
 if [[ -d "${HOME_PATH}" ]]; then
 cat > Update.txt <<EOF
