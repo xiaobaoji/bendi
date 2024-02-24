@@ -4,7 +4,7 @@
 # System Request:Ubuntu 18.04lts/20.04lts/22.04lts
 # Author:	281677160
 # Dscription: Compile openwrt firmware
-# github: https://github.com/281677160/build-actions
+# github: https://github.com/xiaobaoji/openwrt
 #====================================================
 
 # 字体颜色配置
@@ -230,9 +230,9 @@ BENDI_WENJIAN
 
 function Bendi_Dependent() {
 cd ${GITHUB_WORKSPACE}
-wget -q https://raw.githubusercontent.com/281677160/common/main/common.sh -O common.sh
+wget -q https://raw.githubusercontent.com/xiaobaoji/common/main/common.sh -O common.sh
 if [[ $? -ne 0 ]]; then
-  curl -fsSL https://raw.githubusercontent.com/281677160/common/main/common.sh -o common.sh
+  curl -fsSL https://raw.githubusercontent.com/xiaobaoiji/common/main/common.sh -o common.sh
 fi
 if [[ -n "$(grep "TIME" "common.sh")" ]]; then
   sudo chmod +x common.sh
@@ -328,9 +328,9 @@ else
 fi
 chmod -R +x ${GITHUB_WORKSPACE}/operates
 source ${GITHUB_WORKSPACE}/operates/${FOLDER_NAME}/settings.ini
-wget -q https://raw.githubusercontent.com/281677160/common/main/common.sh -O ${GITHUB_WORKSPACE}/common.sh
+wget -q https://raw.githubusercontent.com/xiaobaoji/common/main/common.sh -O ${GITHUB_WORKSPACE}/common.sh
 if [[ $? -ne 0 ]]; then
-  curl -fsSL https://raw.githubusercontent.com/281677160/common/main/common.sh -o ${GITHUB_WORKSPACE}/common.sh
+  curl -fsSL https://raw.githubusercontent.com/xiaobaoji/common/main/common.sh -o ${GITHUB_WORKSPACE}/common.sh
 fi
 if [[ `grep -c "TIME" "${GITHUB_WORKSPACE}/common.sh"` -ge '1' ]]; then
   if [[ "${ZX_XZYM}" == "1" ]]; then
@@ -365,7 +365,7 @@ if [[ `echo "${PATH}" |grep -ic "windows"` -ge '1' ]] && [[ ! "${WSL_ROUTEPATH}"
   read -t 30 -p " [输入[Y/y]回车一次性解决路径问题，任意键回车则用临时路径编译继续编译](不作处理,30秒后使用临时路径编译继续编译)： " Bendi_Wsl
   case ${Bendi_Wsl} in
   [Yy])
-    bash -c  "$(curl -fsSL https://raw.githubusercontent.com/281677160/bendi/main/wsl.sh)"
+    bash -c  "$(curl -fsSL https://raw.githubusercontent.com/xiaobaoji/bendi/main/wsl.sh)"
     exit 0
   ;;
   *)
@@ -421,7 +421,7 @@ sudo rm -rf ${HOME_PATH}/build
 cp -Rf ${GITHUB_WORKSPACE}/operates ${HOME_PATH}/build
 [[ -d "${HOME_PATH}/build/common" ]] && sudo rm -rf ${HOME_PATH}/build/common
 ECHOGG "更新扩展文件"
-git clone -b main --depth 1 https://github.com/281677160/common ${HOME_PATH}/build/common
+git clone -b main --depth 1 https://github.com/xiaobaoji/common ${HOME_PATH}/build/common
 judge "更新扩展文件"
 cp -Rf ${HOME_PATH}/build/common/*.sh ${HOME_PATH}/build/${FOLDER_NAME}/
 cp -Rf ${HOME_PATH}/build/common/common.sh ${HOME_PATH}/build/${FOLDER_NAME}/common.sh
