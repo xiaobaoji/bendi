@@ -166,9 +166,9 @@ BENDI_WENJIAN
 
 function github_establish() {
 ECHOY "在operates文件夹里面创建机型文件夹,正在下载上游源码,请稍后..."
-rm -rf chuang && git clone https://github.com/281677160/build-actions chuang > /dev/null 2>&1
+rm -rf chuang && git clone https://github.com/xiaobaoji/openwrt chuang > /dev/null 2>&1
 if [[ ! -d "chuang/build" ]]; then
-  rm -rf chuang && svn co https://github.com/281677160/build-actions/trunk/build chuang/build > /dev/null 2>&1
+  rm -rf chuang && svn co https://github.com/xiaobaoji/openwrt/trunk/build chuang/build > /dev/null 2>&1
   rm -rf chuang/build/.svn
 fi
 if [[ ! -d "chuang/build" ]]; then
