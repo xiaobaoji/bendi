@@ -2,7 +2,7 @@
 
 #====================================================
 # System Request:Ubuntu 18.04lts/20.04lts/22.04lts
-# Author:	281677160
+# Author:	xiaobaoji
 # Dscription: Compile openwrt firmware
 # github: https://github.com/xiaobaoji/openwrt
 #====================================================
